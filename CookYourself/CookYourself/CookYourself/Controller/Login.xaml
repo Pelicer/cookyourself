@@ -1,0 +1,73 @@
+﻿<Window x:Name="LoginScreen" x:Class="CookYourself.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CookYourself"
+        mc:Ignorable="d"
+        Title="Login" Height="387" Width="564.333" ResizeMode="NoResize" Icon="/CookYourself;component/Images/icon.jpg" Background="#FF585858" WindowStartupLocation="CenterScreen">
+    <!-- Remove button hover property-->
+    <Window.Resources>
+
+        <Style x:Key="NoHover" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!-- End of property-->
+    <Grid>
+        <Image x:Name="imgUser" HorizontalAlignment="Left" Height="155" VerticalAlignment="Top" Width="155" Margin="205,51,0,0" Source="/CookYourself;component/Images/user.png"/>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="177,220,0,0" TextChanged="txtUser_TextChanged"/>
+        <Button x:Name="btnEntrar" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="23" Margin="388,220,0,0" Height="23" BorderThickness="0" Click="btnEntrar_Click" Style="{StaticResource NoHover}">
+            <Button.Background>
+                <ImageBrush ImageSource="/CookYourself;component/Images/save.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnCancelar" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="23" Margin="388,248,0,0" Height="23" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnCancelar_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/CookYourself;component/Images/cancel.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="lblUserName" Content="Usuário:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.526,4.462" Height="23" Width="59" Margin="113,220,0,0" Foreground="White"/>
+        <Label x:Name="lblSenha" Content="Senha:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.526,4.462" Height="23" Width="59" Margin="113,244,0,0" Foreground="White"/>
+        <PasswordBox x:Name="pswPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="206" Margin="177,248,0,0" Height="23" PasswordChanged="pswPassword_PasswordChanged"/>
+        <Separator x:Name="SeparatorUp" HorizontalAlignment="Left" Height="100" Margin="23,-25,0,0" VerticalAlignment="Top" Width="499" Background="#FFD68A3A"/>
+        <Separator x:Name="SeparatorDown" HorizontalAlignment="Left" Height="100" Margin="23,274,0,-16" VerticalAlignment="Top" Width="499" Background="#FFD68A3A"/>
+        <Separator x:Name="SeparatorRight" HorizontalAlignment="Left" Height="100" Margin="370,129,-118,0" VerticalAlignment="Top" Width="306" Background="#FFD68A3A" RenderTransformOrigin="0.5,0.5">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.076"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Separator x:Name="SeparatorLeft" HorizontalAlignment="Left" Height="100" Margin="-126,125,0,0" VerticalAlignment="Top" Width="299" Background="#FFD68A3A" RenderTransformOrigin="0.5,0.5">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.076"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Label x:Name="lblNewUser" Content="Criar usuário" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,298,0,0" Foreground="White" MouseDoubleClick="lblNewUser_MouseDoubleClick"/>
+
+    </Grid>
+</Window>

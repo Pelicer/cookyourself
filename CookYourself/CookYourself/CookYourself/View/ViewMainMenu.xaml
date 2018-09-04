@@ -1,0 +1,380 @@
+﻿<Window x:Name="MainMenuScreen" x:Class="CookYourself.View.ViewMainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CookYourself.View"
+        mc:Ignorable="d"
+        Title="Cook Yourself" Height="700" Width="1400" Background="#FF505050" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/CookYourself;component/Images/icon.jpg">
+
+    <!-- Remove button hover property-->
+    <Window.Resources>
+
+        <Style x:Key="NoHover" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!-- End of property-->
+
+
+    <Grid>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="578" VerticalAlignment="Top" Width="1374" Margin="10,62,0,0">
+            <TabItem x:Name="Inicio" Margin="-2,-2,-2,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/CookYourself;component/Images/Icons/50px/home.png" />
+                        <TextBlock Text="Início" Foreground="Black" FontFamily="Verdana" FontSize="14"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtObjetivo" HorizontalAlignment="Left" Height="113" TextWrapping="Wrap" Text="             Nosso site tem como objetivo lhes apresentar receitas simples que não necessitam muito tempo nem muito esforço, para aqueles dias que você precisa mas não quer cozinhar!" TextAlignment="Justify" VerticalAlignment="Top" Width="410" Margin="10,360,0,0" Background="{x:Null}" Foreground="Black" FontSize="18.667" BorderThickness="0" IsEnabled="False" Grid.Column="1"/>
+                    <TextBox x:Name="txtJustificativa" HorizontalAlignment="Left" Height="183" TextWrapping="Wrap" Text="        Tenho 17 anos, e meus pais me deixaram em casa por um tempo sozinho, e eu já estava cansado de cozinhar todo dia, então resolvi procurar receitas simples para fazer, mas a coisa mais difícil na internet é encontrar coisas simples, principalmente quando você precisa.." TextAlignment="Justify" VerticalAlignment="Top" Width="410" Margin="518,305,0,0" Background="{x:Null}" Foreground="Black" FontSize="18.667" BorderThickness="0" IsEnabled="False" Grid.Column="1"/>
+                    <Label x:Name="lblObjetivo" Content="Objetivo do Sistema:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,305,0,0" Height="50" Width="410" FontSize="32" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800"/>
+                    <Label x:Name="lblJustificativa" Content="Por que este objetivo?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="518,242,0,0" Height="50" Width="410" FontSize="32" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800"/>
+                    <TextBox x:Name="txtInfo" HorizontalAlignment="Left" Height="170" TextWrapping="Wrap" Text="          A água de coco também pode ser usada como plasma sanguíneo, em casos de emergência." TextAlignment="Justify" VerticalAlignment="Top" Width="398" Margin="530,122,0,0" Background="{x:Null}" Foreground="Black" FontSize="18.667" BorderThickness="0" IsEnabled="False" Grid.Column="1"/>
+                    <Image x:Name="image1" HorizontalAlignment="Left" Height="265" VerticalAlignment="Top" Width="502" Margin="10,35,0,0" Source="/CookYourself;component/Images/Food/aguadecoco.jpg" Grid.ColumnSpan="1" Grid.Column="1"/>
+                    <Label x:Name="lblReceitasFamosas" Content="Mensagens recentes:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="948,10,0,0" Height="50" Width="410" FontSize="32" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800"/>
+                    <Image x:Name="imgMargarita" HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="100" Margin="962,212,0,0" Grid.ColumnSpan="2" Source="/CookYourself;component/Images/Food/Margarita Mexicana.png" Visibility="Hidden"/>
+                    <Image x:Name="imgPudim" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="962,332,0,0" Grid.ColumnSpan="2" Source="/CookYourself;component/Images/Food/Pudim de Leite Condensado.png" Visibility="Hidden"/>
+                    <Label x:Name="lblLasanha" Content="Lasanha de Frango" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1072,105,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLasanha_MouseDoubleClick" Visibility="Hidden"/>
+                    <Label x:Name="lblMargarita" Content="Margarita Mexicana" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1072,212,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblMargarita_MouseDoubleClick" Visibility="Hidden"/>
+                    <Label x:Name="lblPudim" Content="Pudim de Leite Condensado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1072,332,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblPudim_MouseDoubleClick" Visibility="Hidden"/>
+                    <Image x:Name="imgLasanha" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="100" Margin="962,101,0,0" Grid.ColumnSpan="2" Source="/CookYourself;component/Images/Food/LasanhaDeFrango.jpg" Visibility="Hidden"/>
+                    <Image x:Name="imgLanche" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="962,438,0,0" Grid.ColumnSpan="2" Source="/CookYourself;component/Images/Food/Lanche Natural.png" Visibility="Hidden"/>
+                    <Label x:Name="lblLanche" Content="Lanche Natural" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1072,438,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLanche_MouseDoubleClick" Visibility="Hidden"/>
+                    <Label x:Name="lblVoceSabia" Content="Você Sabia?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="592,46,0,0" Height="98" Width="290" FontSize="64" FontFamily="Nueva Std Cond" Grid.Column="1" Foreground="#FFFF6800"/>
+                    <DataGrid x:Name="tblMensagens" AutoGenerateColumns="False"  AreRowDetailsFrozen="True" SelectionMode="Single" HorizontalAlignment="Left" Height="428" Margin="948,60,0,0" VerticalAlignment="Top" Width="408" IsReadOnly="True" Opacity="0.5" AlternationCount="1" MouseDoubleClick="tblLanches_MouseDoubleClick" Grid.ColumnSpan="2" Loaded="tblMensagens_Loaded">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Cod."  Width="50" Binding="{Binding MensagemCodigo}" />
+                            <DataGridTextColumn Header="Autor"  Width="*" Binding="{Binding MensagemAutor}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Sobre" Margin="-2,-2,-2,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/CookYourself;component/Images/Icons/50px/about.png" />
+                        <TextBlock Text="Sobre" Foreground="Black" FontFamily="Verdana" FontSize="14"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="1345*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblTitle" Content="Por que criar o sistema?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="448" Margin="457,15,0,0" FontSize="21.333" FontFamily="Verdana" Grid.Column="1" Height="36" Foreground="#FFFF6800"/>
+                    <TextBox x:Name="txtIdeia" HorizontalAlignment="Left" Height="189" TextWrapping="Wrap" Text="          Eu em conjunto com algumas colegas tinhamos que fazer um trabalho de conclusão de curso, que ja estava com o prazo estourado, mas não conseguiamos pensar em nada, até que meu namorado deu a ideia dele de fazer um site de receitas simples, que com certeza vai ajudar muitas pessoas!" TextAlignment="Justify" VerticalAlignment="Top" Width="448" Margin="457,56,0,0" FontSize="18.667" Background="{x:Null}" BorderThickness="0" IsEnabled="False" Grid.Column="1"/>
+                    <Label x:Name="lblExpectativas" Content="O que esperávamos para o sistema?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="508" Margin="10,308,0,0" FontSize="21.333" FontFamily="Verdana" Grid.Column="1" Height="36" Foreground="#FFFF6800"/>
+                    <TextBox x:Name="txtExpectativa" HorizontalAlignment="Left" Height="116" TextWrapping="Wrap" Text="          A gente não achava que iriamos continuar com o sistema logo após o termino do curso, pois para nós era só um trabalho, apesar de ser um TCC era só um trabalho!" TextAlignment="Justify" VerticalAlignment="Top" Width="447" Margin="0,349,0,0" FontSize="18.667" Background="{x:Null}" BorderThickness="0" IsEnabled="False" Grid.Column="1"/>
+                    <Label x:Name="lblConhecer" Content="Como nos conhecemos?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="508" Margin="457,245,0,0" FontSize="21.333" FontFamily="Verdana" Grid.Column="1" Height="36" Foreground="#FFFF6800"/>
+                    <TextBox x:Name="txtConhecer" HorizontalAlignment="Left" Height="179" TextWrapping="Wrap" Text="          Eu fiz uma prova para um curso técnico, porem para vagas remanescentes, quando recebi a noticia, comecei a estudar na ETEC de Hortolândia, onde as minha amigas ja estudavam, eu não tinha grupo pra nada, e precisava de um grupo para fazer o TCC e foram elas que me acolheram, apesar da discordancia de algumas..." TextAlignment="Justify" VerticalAlignment="Top" Width="446" Margin="459,286,0,0" FontSize="18.667" Background="{x:Null}" BorderThickness="0" IsEnabled="False" Grid.Column="1"/>
+                    <Image x:Name="imgGarotas" HorizontalAlignment="Left" Height="230" VerticalAlignment="Top" Width="437" Grid.Column="1" Margin="10,15,0,0" Source="/CookYourself;component/Images/Food/abobora.jpg"/>
+                    <Label x:Name="lblDedicatoria" Content="Dedicatórias:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="398" Margin="937,15,0,0" FontSize="21.333" FontFamily="Verdana" Grid.Column="1" Height="36" Foreground="#FFFF6800"/>
+                    <TextBox x:Name="txtDedicatoria" HorizontalAlignment="Left" Height="116" TextWrapping="Wrap" Text="          Nossa dedicatoria não é só isso pois temos muito o que agradecer, pois foram muitas pessoas que nos ajudaram a construir tudo isso, porque não foi uma tarefa simples." TextAlignment="Justify" VerticalAlignment="Top" Width="398" Margin="937,56,0,0" FontSize="18.667" Background="{x:Null}" BorderThickness="0" IsEnabled="False" Grid.Column="1"/>
+                    <Label x:Name="lblProfessores" Content="(Professores)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="168" Margin="1167,280,0,0" FontSize="21.333" FontFamily="Verdana" Grid.Column="1" Height="36" Foreground="#FFFF5100"/>
+                    <TextBox x:Name="txtProfessores" HorizontalAlignment="Left" Height="109" TextWrapping="Wrap" Text="          &quot;Aos nossos professores, por terem nos ajudado e não perderem a paciência ao nos explicar toda a matéria.&quot;" TextAlignment="Justify" VerticalAlignment="Top" Width="398" Margin="937,172,0,0" FontSize="18.667" Background="{x:Null}" BorderThickness="0" IsEnabled="False" Grid.Column="1"/>
+                    <Label x:Name="lblFamilia" Content="(Família)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="116" Margin="1219,439,0,0" FontSize="21.333" FontFamily="Verdana" Grid.Column="1" Height="36" Foreground="#FFFF5100"/>
+                    <TextBox x:Name="txtFamilia" HorizontalAlignment="Left" Height="109" TextWrapping="Wrap" Text="          &quot;Agradecemos nossas famílias, por não perderem a paciência enquanto estávamos tão concentradas em conseguirmos uma boa nota neste trabalho de conclusão. &quot;" TextAlignment="Justify" VerticalAlignment="Top" Width="398" Margin="937,321,0,0" FontSize="18.667" Background="{x:Null}" BorderThickness="0" IsEnabled="False" Grid.Column="1" RenderTransformOrigin="0.518,1.491"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Salgados" Margin="-2,-2,-2,0" BorderBrush="White">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/CookYourself;component/Images/Icons/50px/snack.png" />
+                        <TextBlock Text="Salgados" Foreground="Black" FontFamily="Verdana" FontSize="14" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="943*"/>
+                        <ColumnDefinition Width="425*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="tblSalgados" AutoGenerateColumns="False"  AreRowDetailsFrozen="True" SelectionMode="Single" HorizontalAlignment="Left" Height="414" Margin="10,85,0,0" VerticalAlignment="Top" Width="918" IsReadOnly="True" Opacity="0.5" AlternationCount="1" Loaded="tblSalgados_Loaded" MouseDoubleClick="tblSalgados_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Receita"  Width="300" Binding="{Binding Titulo}" />
+                            <DataGridTextColumn Header="Rendimento"  Width="*" Binding="{Binding Rendimento}" />
+                            <DataGridTextColumn Header="Tempo de Preparo"  Width="*" Binding="{Binding TempoPreparo}" />
+                            <DataGridTextColumn Header="Custo"  Width="*" Binding="{Binding CustoTotal}" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Image x:Name="imgHeader" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="918" Source="/CookYourself;component/Images/Food/HeaderSalgados.jpg" StretchDirection="UpOnly"/>
+                    <Button x:Name="btnNovoSalgado" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="10,20,0,0" Height="50" BorderThickness="0" Click="btnNovoSalgado_Click" Style="{StaticResource NoHover}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/new.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnviewSalgado" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="65,20,0,0" Height="50" BorderThickness="0" Click="btnviewSalgado_Click" Style="{StaticResource NoHover}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/edit.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnFilter" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="175,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnFilter_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/filter.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnDeleteSalgado" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="120,20,0,0" Height="50" BorderThickness="0" Click="btnDeleteSalgado_Click" Style="{StaticResource NoHover}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/delete.png"/>
+                        </Button.Background>
+                    </Button>
+                    <TextBox x:Name="txtFilter" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Margin="230,46,0,0" BorderThickness="0,0,0,2" BorderBrush="#FFFF6800" Visibility="Hidden" TextChanged="txtFilter_TextChanged" Background="{x:Null}" />
+                    <Image x:Name="imgLancheSalgados" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="19,438,0,0" Source="/CookYourself;component/Images/Food/Lanche Natural.png" Grid.Column="1"/>
+                    <Label x:Name="lblLancheSalgado" Content="Lanche Natural" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,438,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLanche_MouseDoubleClick"/>
+                    <Image x:Name="imgPudimSalgados" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="19,332,0,0" Source="/CookYourself;component/Images/Food/Pudim de Leite Condensado.png" Grid.Column="1"/>
+                    <Label x:Name="lblPudimSalgados" Content="Pudim de Leite Condensado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,332,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblPudim_MouseDoubleClick"/>
+                    <Image x:Name="imgMargaritaSalgados" HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="100" Margin="19,212,0,0" Source="/CookYourself;component/Images/Food/Margarita Mexicana.png" Grid.Column="1"/>
+                    <Label x:Name="lblMargaritaSalgados" Content="Margarita Mexicana" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,212,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblMargarita_MouseDoubleClick"/>
+                    <Label x:Name="lblLasanhaSalgados" Content="Lasanha de Frango" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,105,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLasanha_MouseDoubleClick"/>
+                    <Image x:Name="imgLasanhaSalgados" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="100" Margin="19,101,0,0" Source="/CookYourself;component/Images/Food/LasanhaDeFrango.jpg" Grid.Column="1"/>
+                    <Label x:Name="lblReceitasFamosasSalgados" Content="Receitas Famosas:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0" Height="50" Width="410" FontSize="32" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Lanches" Margin="-2,-2,-2,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/CookYourself;component/Images/Icons/50px/pizza.png" />
+                        <TextBlock Text="Lanches" Foreground="Black" FontFamily="Verdana" FontSize="14"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="943*"/>
+                        <ColumnDefinition Width="425*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="tblLanches" AutoGenerateColumns="False"  AreRowDetailsFrozen="True" SelectionMode="Single" HorizontalAlignment="Left" Height="414" Margin="10,85,0,0" VerticalAlignment="Top" Width="918" IsReadOnly="True" Opacity="0.5" AlternationCount="1" Loaded="tblLanches_Loaded" MouseDoubleClick="tblLanches_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Receita"  Width="300" Binding="{Binding Titulo}" />
+                            <DataGridTextColumn Header="Rendimento"  Width="*" Binding="{Binding Rendimento}" />
+                            <DataGridTextColumn Header="Tempo de Preparo"  Width="*" Binding="{Binding TempoPreparo}" />
+                            <DataGridTextColumn Header="Custo"  Width="*" Binding="{Binding CustoTotal}" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Image x:Name="imgHeaderLanche" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="918" Source="/CookYourself;component/Images/Food/HeaderLanche.jpg" StretchDirection="UpOnly"/>
+                    <Button x:Name="btnNovoLanche" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="10,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnNovoLanche_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/new.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnViewLanche" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="65,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnViewLanche_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/edit.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnFiltrarLanche" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="175,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnFiltrarLanche_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/filter.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnDeleteLanche" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="120,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnDeleteLanche_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/delete.png"/>
+                        </Button.Background>
+                    </Button>
+                    <TextBox x:Name="txtFiltrarLanche" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Margin="230,47,0,0" BorderThickness="0,0,0,2" BorderBrush="#FFFF6800" Visibility="Hidden" TextChanged="txtFiltrarLanche_TextChanged" />
+                    <Image x:Name="imgLancheLanches" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="19,438,0,0" Source="/CookYourself;component/Images/Food/Lanche Natural.png" Grid.Column="1"/>
+                    <Label x:Name="lblLancheLanches" Content="Lanche Natural" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,438,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLanche_MouseDoubleClick"/>
+                    <Image x:Name="imgPudimLanches" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="19,332,0,0" Source="/CookYourself;component/Images/Food/Pudim de Leite Condensado.png" Grid.Column="1"/>
+                    <Label x:Name="lblPudimLanches" Content="Pudim de Leite Condensado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,332,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblPudim_MouseDoubleClick"/>
+                    <Image x:Name="imgMargaritaLanches" HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="100" Margin="19,212,0,0" Source="/CookYourself;component/Images/Food/Margarita Mexicana.png" Grid.Column="1"/>
+                    <Label x:Name="lblMargaritaLanches" Content="Margarita Mexicana" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,212,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblMargarita_MouseDoubleClick"/>
+                    <Label x:Name="lblLasanhaLanches" Content="Lasanha de Frango" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,105,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLasanha_MouseDoubleClick"/>
+                    <Image x:Name="imgLasanhaLanches" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="100" Margin="19,101,0,0" Source="/CookYourself;component/Images/Food/LasanhaDeFrango.jpg" Grid.Column="1"/>
+                    <Label x:Name="lblReceitasFamosasLanches" Content="Receitas Famosas:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0" Height="50" Width="410" FontSize="32" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Doces" Margin="-2,-2,-2,0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/CookYourself;component/Images/Icons/50px/candy.png" />
+                        <TextBlock Text="Doces" Foreground="Black" FontFamily="Verdana" FontSize="14"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="943*"/>
+                        <ColumnDefinition Width="425*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="tblDoces" AutoGenerateColumns="False"  AreRowDetailsFrozen="True" SelectionMode="Single" HorizontalAlignment="Left" Height="414" Margin="10,85,0,0" VerticalAlignment="Top" Width="918" IsReadOnly="True" Opacity="0.5" AlternationCount="1" Loaded="tblDoces_Loaded" MouseDoubleClick="tblDoces_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Receita"  Width="300" Binding="{Binding Titulo}" />
+                            <DataGridTextColumn Header="Rendimento"  Width="*" Binding="{Binding Rendimento}" />
+                            <DataGridTextColumn Header="Tempo de Preparo"  Width="*" Binding="{Binding TempoPreparo}" />
+                            <DataGridTextColumn Header="Custo"  Width="*" Binding="{Binding CustoTotal}" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Image x:Name="imgHeader_Copy" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="918" Source="/CookYourself;component/Images/Food/HeaderCandy.jpg" StretchDirection="UpOnly"/>
+                    <Button x:Name="btnNovoDoce" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="10,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnNovoDoce_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/new.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnViewDoce" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="65,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnViewDoce_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/edit.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnFiltrarDoce" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="175,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnFiltrarDoce_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/filter.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnDeleteDoce" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="120,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnDeleteDoce_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/delete.png"/>
+                        </Button.Background>
+                    </Button>
+                    <TextBox x:Name="txtFiltrarDoce" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Margin="230,48,0,0" BorderThickness="0,0,0,2" BorderBrush="#FFFF6800" Visibility="Hidden"  TextChanged="txtFiltrarDoce_TextChanged" Background="{x:Null}"/>
+                    <Image x:Name="imgLancheDoces" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="19,438,0,0" Source="/CookYourself;component/Images/Food/Lanche Natural.png" Grid.Column="1"/>
+                    <Label x:Name="lblLancheDoces" Content="Lanche Natural" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,438,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLanche_MouseDoubleClick"/>
+                    <Image x:Name="imgPudimDoces" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="19,332,0,0" Source="/CookYourself;component/Images/Food/Pudim de Leite Condensado.png" Grid.Column="1"/>
+                    <Label x:Name="lblPudimDoces" Content="Pudim de Leite Condensado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,332,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblPudim_MouseDoubleClick"/>
+                    <Image x:Name="imgMargaritaDoces" HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="100" Margin="19,212,0,0" Source="/CookYourself;component/Images/Food/Margarita Mexicana.png" Grid.Column="1"/>
+                    <Label x:Name="lblMargaritaDoces" Content="Margarita Mexicana" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,212,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblMargarita_MouseDoubleClick"/>
+                    <Label x:Name="lblLasanhaDoces" Content="Lasanha de Frango" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,105,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLasanha_MouseDoubleClick"/>
+                    <Image x:Name="imgLasanhaDoces" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="100" Margin="19,101,0,0" Source="/CookYourself;component/Images/Food/LasanhaDeFrango.jpg" Grid.Column="1"/>
+                    <Label x:Name="lblReceitasFamosasDoces" Content="Receitas Famosas:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0" Height="50" Width="410" FontSize="32" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Bebidas" Margin="-2,-2,-2,0" MouseDoubleClick="Bebidas_MouseDoubleClick">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/CookYourself;component/Images/Icons/50px/drink.png" />
+                        <TextBlock Text="Bebidas" Foreground="Black" FontFamily="Verdana" FontSize="14"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="943*"/>
+                        <ColumnDefinition Width="425*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="tblBebidas" AutoGenerateColumns="False"  AreRowDetailsFrozen="True" SelectionMode="Single" HorizontalAlignment="Left" Height="414" Margin="10,85,0,0" VerticalAlignment="Top" Width="918" IsReadOnly="True" Opacity="0.5" AlternationCount="1" Loaded="tblBebidas_Loaded">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Receita"  Width="300" Binding="{Binding Titulo}" />
+                            <DataGridTextColumn Header="Rendimento"  Width="*" Binding="{Binding Rendimento}" />
+                            <DataGridTextColumn Header="Tempo de Preparo"  Width="*" Binding="{Binding TempoPreparo}" />
+                            <DataGridTextColumn Header="Custo"  Width="*" Binding="{Binding CustoTotal}" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Image x:Name="imgHeaderDrink" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="918" Source="/CookYourself;component/Images/Food/HeaderDrink.jpg" StretchDirection="UpOnly"/>
+
+                    <Button x:Name="btnNovaBebida" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="10,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnNovaBebida_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/new.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnViewBebida" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="65,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnViewBebida_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/edit.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnFiltrarBebida" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="175,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnFiltrarBebida_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/filter.png"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="btnDeleteBebida" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="120,20,0,0" Height="50" BorderThickness="0" Style="{StaticResource NoHover}" Click="btnDeleteBebida_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/CookYourself;component/Images/Icons/delete.png"/>
+                        </Button.Background>
+                    </Button>
+                    <TextBox x:Name="txtFiltrarBebida" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Margin="230,46,0,0" BorderThickness="0,0,0,2" BorderBrush="#FFFF6800" Visibility="Hidden" TextChanged="txtFiltrarBebida_TextChanged" Background="{x:Null}"/>
+                    <Image x:Name="imgLancheBebidas" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="19,438,0,0" Source="/CookYourself;component/Images/Food/Lanche Natural.png" Grid.Column="1"/>
+                    <Label x:Name="lblLancheBebidas" Content="Lanche Natural" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,438,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLanche_MouseDoubleClick"/>
+                    <Image x:Name="imgPudimBebidas" HorizontalAlignment="Left" Height="61" VerticalAlignment="Top" Width="100" Margin="19,332,0,0" Source="/CookYourself;component/Images/Food/Pudim de Leite Condensado.png" Grid.Column="1"/>
+                    <Label x:Name="lblPudimBebidas" Content="Pudim de Leite Condensado" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,332,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblPudim_MouseDoubleClick"/>
+                    <Image x:Name="imgMargaritaBebidas" HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="100" Margin="19,212,0,0" Source="/CookYourself;component/Images/Food/Margarita Mexicana.png" Grid.Column="1"/>
+                    <Label x:Name="lblMargaritaBebidas" Content="Margarita Mexicana" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,212,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblMargarita_MouseDoubleClick"/>
+                    <Label x:Name="lblLasanhaBebidas" Content="Lasanha de Frango" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="129,105,0,0" Height="50" Width="286" FontSize="18.667" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800" Cursor="Hand" MouseDoubleClick="lblLasanha_MouseDoubleClick"/>
+                    <Image x:Name="imgLasanhaBebidas" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="100" Margin="19,101,0,0" Source="/CookYourself;component/Images/Food/LasanhaDeFrango.jpg" Grid.Column="1"/>
+                    <Label x:Name="lblUltimosAdicionados_Copy2" Content="Receitas Famosas:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0" Height="50" Width="410" FontSize="32" FontFamily="Verdana" Grid.Column="1" Foreground="#FFFF6800"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Image x:Name="imgTitle" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="190" Source="/CookYourself;component/Images/logo.png" Margin="1194,22,0,0"/>
+        <Separator HorizontalAlignment="Left" Height="100" Margin="716,330,0,0" VerticalAlignment="Top" Width="481" RenderTransformOrigin="0.5,0.5" Background="#FFFF6800">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.047"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="1394">
+            <MenuItem Header="_Registrar">
+                <MenuItem Header="_Cadastrar" Click="MenuItem_Click" />
+                <Separator />
+                <MenuItem Header="_Exit" Click="MenuItem_Click_1" />
+            </MenuItem>
+            <MenuItem Header="_Receitas">
+                <MenuItem Header="_Salgados" Click="MenuItem_Click_2" />
+                <MenuItem Header="_Lanches" Click="MenuItem_Click_3" />
+                <MenuItem Header="_Doces" Click="MenuItem_Click_4" />
+                <MenuItem Header="_Bebidas" Click="MenuItem_Click_5" />
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
